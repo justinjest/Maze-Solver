@@ -34,11 +34,16 @@ class Maze:
                 self._draw_cells(y, x)
 
     def _draw_cells(self, i, j):
+        self._break_entrance_and_exit()
         x1 = (self.cell_size_x * j) + self.x1
         y1 = (self.cell_size_y * i) + self.y1
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
         self._cells[i][j]._draw_cell(x1, y1, x2, y2)
+
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_left_wall = False
+        self._cells[-1][-1].has_right_wall = False
 
     def _animate(self):
         self.win.redraw()
