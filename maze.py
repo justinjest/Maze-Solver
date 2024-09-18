@@ -26,16 +26,15 @@ class Maze:
         for y in range(self.num_cols):
             self._cells.append([])
             for x in range(self.num_rows):
-                self._cells[y].append(Cell)
+                self._cells[y].append(Cell(self.win))
 
         for y in range(len(self._cells)):
-            for x in range(y):
-                self._draw_cell(y, x)
+            for x in range(len(self._cells[y])):
+                self._draw_cells(y, x)
 
-    def _draw_cell(self, i, j):
+    def _draw_cells(self, i, j):
         x1 = (self.cell_size_x * j) + self.x1
         y1 = (self.cell_size_y * i) + self.y1
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
-        print(self._cells[j][i])
-        self._cells[j][i]._draw_cell(x1, y1, x2, y2, "black")
+        self._cells[j][i]._draw_cell(x1, y1, x2, y2)
