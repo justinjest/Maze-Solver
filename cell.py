@@ -3,7 +3,7 @@ from graphics import *
 class Cell():
     # x1, y1 is top left corner of cell
     # x2, y2 is bottom right corner
-    def __init__(self, win):
+    def __init__(self, win=None):
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -31,10 +31,10 @@ class Cell():
 
         if self.has_bottom_wall:
             walls.append(Line(Point(x1, y2), Point(x2, y2)))
-
-        for wall in walls:
-            self._win.draw_line(wall)
-    
+        if self._win is not None:
+            for wall in walls:
+                self._win.draw_line(wall)
+        
     def draw_move(self, to_cell, window, undo=False):
         color = "grey"
         if undo == False:
