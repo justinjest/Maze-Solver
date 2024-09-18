@@ -1,3 +1,5 @@
+from graphics import *
+
 class Cell():
     # x1, y1 is top left corner of cell
     # x2, y2 is bottom right corner

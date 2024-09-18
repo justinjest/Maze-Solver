@@ -1,3 +1,5 @@
+from cell import Cell
+
 
 class Maze:
     def __init__(
@@ -35,4 +37,5 @@ class Maze:
         y1 = (self.cell_size_y * i) + self.y1
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
-        Cell._draw_cell(x1, y1, x2, y2, "black", window)
+        print(self._cells[j][i])
+        self._cells[j][i]._draw_cell(x1, y1, x2, y2, "black")
