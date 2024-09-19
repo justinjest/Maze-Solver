@@ -9,5 +9,5 @@ from maze import Maze
 
 
 window = Window(800, 600)
-test_maze = Maze(10, 10, 12, 10, 10, 10, window)
+test_maze = Maze(0, 0, 40, 30, 20, 20, window)
 window.wait_for_close()
